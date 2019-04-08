@@ -3,4 +3,17 @@ console.log("CONTENT NOT YET LOADED!", fullname); //what will fullname evaluate 
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("CONTENT LOADED!");
+  appendUser()
 });
+
+function fetchUser() {
+  return fetch('https://randomuser.me/api/')
+  .then(response => response.json())
+}
+
+function appendUser() {
+  fetchUser()
+  .then(data => {
+    console.log(data.results)
+  })
+}
